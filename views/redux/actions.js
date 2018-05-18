@@ -45,10 +45,8 @@ function fetchPhotoDetails() {
 function shouldFetchPhotos(state) {
   var photos = state.photos;
   if (photos.length == 0) {
-    console.log("Fetching");
     return true;
   } else if (state.isFetching) {
-    console.log("Not Fetching");
     return false;
   }
 }

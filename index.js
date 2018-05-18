@@ -1,7 +1,10 @@
 const express = require('express'),
+  {matchPath} = require('react-router-dom'),
   app = express(),
-  template = require('./views/template')
-path = require('path');
+  template = require('./views/template'),
+  path = require('path'),
+  renderToString = require('react-dom/server')
+  //routes = require('./src/routes');
 
 // Serving static files
 app.use('/assets', express.static(path.resolve(__dirname, 'assets')));
@@ -23,15 +26,22 @@ const ssr = require('./views/server');
 
 // server rendered home page
 app.get('/', (req, res) => {
+  /*const activeRoute = routes.find(
+    (route) => matchPath(req.url, route)
+  );
+  const promise = activeRoute.fetchInitialData
+    ? activeRoute.fetchInitialData(req.path)
+    : Promise.resolve();
+
+
+  /*promise.then((data) => {
+    const markup = renderToString(
+      <App />
+    );
+  }).catch(next)*/
+
   const {preloadedState, content} = ssr(initialState)
   const response = template("Server Rendered Page", preloadedState, content)
-  res.setHeader('Cache-Control', 'assets, max-age=604800')
-  res.send(response);
-});
-
-// Pure client side rendered page
-app.get('/client', (req, res) => {
-  let response = template('Client Side Rendered page')
   res.setHeader('Cache-Control', 'assets, max-age=604800')
   res.send(response);
 });

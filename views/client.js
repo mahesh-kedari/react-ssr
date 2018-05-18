@@ -27,7 +27,7 @@ delete window.__STATE__;
 var store = (0, _configureStore2.default)(state);
 
 (0, _reactDom.hydrate)(_react2.default.createElement(
-  _reactRedux.Provider,
-  { store: store },
-  _react2.default.createElement(_app2.default, null)
+    _reactRedux.Provider,
+    { store: store },
+    _react2.default.createElement(_app2.default, null)
 ), document.querySelector('#app'));

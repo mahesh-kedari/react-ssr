@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-//import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import {fetchPhotosIfNeeded} from '../redux/actions'
-
+import {Switch} from 'react-router';
+import {Route} from 'react-router-dom';
+import routes from '../routes';
+import {fetchPhotosIfNeeded} from '../redux/actions';
 
 import PhotoContainer from './photoContainer'
 

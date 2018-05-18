@@ -16,6 +16,8 @@ var _app = require('./components/app');
 
 var _app2 = _interopRequireDefault(_app);
 
+var _reactRouterDom = require('react-router-dom');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = function render(initialState) {

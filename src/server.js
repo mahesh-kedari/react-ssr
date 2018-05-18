@@ -1,17 +1,18 @@
-import React from 'react'
-import { renderToString } from 'react-dom/server'
+import React from 'react';
+import {renderToString} from 'react-dom/server';
 
-import { Provider } from 'react-redux'
-import configureStore from './redux/configureStore'
-import App from './components/app'
+import {Provider} from 'react-redux';
+import configureStore from './redux/configureStore';
+import App from './components/app';
 
+import {StaticRouter, matchPath} from 'react-router-dom';
 
 module.exports = function render(initialState) {
   // Model the initial state
   const store = configureStore(initialState)
   let content = renderToString(
-    <Provider store={store} >
-       <App />
+    <Provider store={store}>
+        <App/>
     </Provider>
   );
 
